@@ -39,10 +39,12 @@ class Auth extends CI_Controller
 				// cek password sama atau tidak
 				if(password_verify($password, $user['password']))
 				{
+					// siapkan data nya ke dalam var data
 					$data = [
 						'email' => $user['email'],
 						'role_id' => $user['role_id']
 					];
+					// simpan var data ke dalam session lalu arahkan ke controller masing masing
 					$this->session->set_userdata($data);
 					if($user['role_id'] == 1) {
 						redirect('admin');

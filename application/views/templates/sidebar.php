@@ -14,12 +14,16 @@
 			
 			<!-- QUERY MENU -->
 			<?php
+			// ambil role id dari session masukan ke var role id untuk di gunakan pada query menu
 			$role_id = $this->session->userdata('role_id');
-				$queryMenu = "SELECT `user_menu`.`id`, `menu`
-											FROM `user_menu` JOIN `user_access_menu`
-											ON `user_menu`.`id` = `user_access_menu`.`menu_id`
-											WHERE `user_access_menu`.`role_id` = $role_id
-											ORDER BY `user_access_menu`.`menu_id` ASC";
+			 // menampilkan id dan menu dari user menu join user access menu
+			 // where role_id sesuai dengan role id user yg sdg login 
+			$queryMenu = "SELECT `user_menu`.`id`, `menu`
+							FROM `user_menu` JOIN `user_access_menu`
+							ON `user_menu`.`id` = `user_access_menu`.`menu_id`
+							WHERE `user_access_menu`.`role_id` = $role_id
+							ORDER BY `user_access_menu`.`menu_id` ASC";
+			// masukan var query menu ke dalam var menu untuk di looping
 				$menu = $this->db->query($queryMenu)->result_array();
 			?>
 
@@ -32,6 +36,7 @@
 			<!-- SIAPKAN MENU SESUAI MENU -->
 			<?php
 			$menuId = $m['id'];
+			// tampilan sub menu sesuai dengan menu nya dgn join tbl
 			$querySubMenu = "SELECT *
 							FROM `user_sub_menu` JOIN `user_menu`
 							ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
@@ -59,7 +64,7 @@
 
 	  
 	    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('logout'); ?>">
+        <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
           <i class="fas fa-sign-out-alt"></i>
           <span>Logout</span></a>
 	  </li>

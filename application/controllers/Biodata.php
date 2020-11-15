@@ -5,6 +5,7 @@ class Biodata extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		is_logged_in();
 		$this->load->model('Biodata_model');
 		$this->load->library('form_validation');
 	}

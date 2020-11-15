@@ -13,6 +13,8 @@ class User extends CI_Controller
 	{
 
 		$data['title'] = 'My Profile';
+		// ambil data dari user yang ada dari session
+		// select email.session from user where email = email.session
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		
 		$this->load->view('templates/header', $data);

@@ -38,6 +38,7 @@ class Menu extends CI_Controller
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$this->load->model('Menu_model', 'menu');
 
+		//ambil ke model menu
 		$data['subMenu'] = $this->menu->getSubMenu();
 		$data['menu'] = $this->db->get('user_menu')->result_array();
 

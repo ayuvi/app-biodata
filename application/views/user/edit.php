@@ -15,7 +15,7 @@
 				<div class="form-group row">
 					<label for="email" class="col-sm-2 col-form-label">Email</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control" id="email" name="email" value="<?= $user['email']; ?>" readonly>
+						<input type="text" class="form-control" id="email" name="email" value="<?= $user['email']; ?>" readonly>
 					</div>
 				</div>
 				<div class="form-group row">
@@ -34,8 +34,8 @@
 							</div>
 							<div class="col-sm-9">
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="image">
-									<label class="custom-file-label" for="image" name="image">Choose file</label>
+									<input type="file" class="custom-file-input" id="image"name="image">
+									<label class="custom-file-label" for="image">Choose file</label>
 								</div>
 							</div>
 						</div>
